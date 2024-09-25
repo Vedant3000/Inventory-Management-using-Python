@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item</title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            text-align: center;
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        .second {    
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;       
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            width: auto; /* Set a width for the div */
+            background-color: lightblue;
+            margin: 0 auto; /* This will horizontally center the div */
+            padding: 20px;
+            text-align: center;
+        }
+        body {
+            align-items: center;
+            justify-content: center;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            width: 60%;
+            max-width: 400px; /* Maximum width for the form */
+        }
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin-top: 10px;
+            display: block;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 10px auto;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fafafa; /* Light background */
+        }
+        .frm {
+            width: 50%;
+            margin: 20px auto auto 450px;
+            padding: 20px;  
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Add New Item</h1>
+        <div class="frm">
+        <form method="POST">
+            <label for="name">Item Name:</label>
+            <input type="text" name="name" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" required>
+            <label for="volume">Volume (ml/L):</label>
+            <input type="text" name="volume" required><br><br>
+        </div>
+            <center><button type="submit" class="button">Add Item</button></center>
+        </form>
+    
+        <div class="second">
+            <center>
+        <a href="/" class="button">Home</a>
+        <a href="/inventory" class="button">View Inventory</a>
+            </center>
+    </div>
+    </div>
+</body>
+</html>

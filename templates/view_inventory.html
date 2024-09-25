@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory List</title>
+    <style>
+        h1 {
+            font-family: 'Georgia', serif;
+            width: auto; /* Set a width for the div */
+            background-color: lightblue;
+            margin: 0 auto; /* This will horizontally center the div */
+            padding: 20px;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            text-align: center;
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        .second {    
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;       
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse; /* Remove gaps between borders */
+            margin: 20px auto; /* Center the table */
+            font-family: Arial, sans-serif;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        th, td {
+            padding: 12px 20px; /* Add padding to table cells */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid #ddd; /* Add bottom border */
+        }
+
+        th {
+            background-color: #4CAF50; /* Header background color */
+            color: white; /* Header text color */
+            font-size: 18px;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; /* Change background color on hover */
+        }
+
+        td {
+            background-color: #fafafa; /* Light background for data cells */
+            color: #333; /* Text color */
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f9f9f9; /* Alternating row colors */
+        }
+
+        caption {
+            caption-side: top;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Add responsiveness for smaller screens */
+        @media screen and (max-width: 600px) {
+            table, th, td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Inventory List</h1>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+<br><br>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Volume (ml/L)</th>
+            <th>Actions</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>
+                <a href="/delete/{{ item[0] }}" class="button">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="second">
+        <center>
+    <a href="/" class="button">Home</a>
+    <a href="/add" class="button">Add New Item</a>
+        </center>
+    </div>
+</body>
+</html>
